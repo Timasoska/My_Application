@@ -46,14 +46,14 @@ public class MainActivity extends AppCompatActivity {
 
         list_item = findViewById(R.id.list_item);
 
-        productLists.add(new HomeProductList("Make-Up","100 TRY.",R.drawable.makeup));
-        productLists.add(new HomeProductList("Jean","180 TRY.",R.drawable.jeans));
-        productLists.add(new HomeProductList("Red Dress","100 TRY.",R.drawable.dress));
-        productLists.add(new HomeProductList("Bag","80 TRY.",R.drawable.bag));
-        productLists.add(new HomeProductList("Make-Up","100 TRY.",R.drawable.makeup));
-        productLists.add(new HomeProductList("Jean","180 TRY.",R.drawable.jeans));
-        productLists.add(new HomeProductList("Red Dress","100 TRY.",R.drawable.dress));
-        productLists.add(new HomeProductList("Bag","80 TRY.",R.drawable.bag));
+        productLists.add(new HomeProductList("Iphone 15","150000 RUB.",R.drawable.iphone15));
+        productLists.add(new HomeProductList("MacBook pro","180000 RUB.",R.drawable.macbook));
+        productLists.add(new HomeProductList("MacBook air","100000 RUB.",R.drawable.macbookair));
+        productLists.add(new HomeProductList("Samsung S20","130000 RUB.",R.drawable.samsung));
+        productLists.add(new HomeProductList("Samsung A25","25000 RUB.",R.drawable.samsunga));
+        productLists.add(new HomeProductList("Samsung Note 10","120000 RUB.",R.drawable.samsungnote));
+        productLists.add(new HomeProductList("Asus zenbook 15pro","130000 RUB.",R.drawable.asus));
+        productLists.add(new HomeProductList("Asus vivobook 15","105000 RUB.",R.drawable.asusvivo));
 
 
         HomeProductAdapter mailAdapter = new HomeProductAdapter(this, productLists);
