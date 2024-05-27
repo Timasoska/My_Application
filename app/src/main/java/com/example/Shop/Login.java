@@ -88,7 +88,6 @@ public class Login extends AppCompatActivity {
         mAuth.signInWithEmailAndPassword(mails,passwords).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 if(task.isSuccessful()){
