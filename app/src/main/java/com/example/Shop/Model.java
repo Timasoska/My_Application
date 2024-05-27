@@ -24,32 +24,8 @@ public class Model
         return desc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
     public String getPrice() {
         return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-
-    public ImageView getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(ImageView imageUrl) {
-        this.imageUrl = imageUrl;
     }
 
     public Model(String name, String desc, String price, String img, ImageView imageUrl) {

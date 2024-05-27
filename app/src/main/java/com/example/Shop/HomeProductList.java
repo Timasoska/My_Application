@@ -17,17 +17,10 @@ public class HomeProductList {
         return price;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
     public int getImage() {
         return image;
     }
 
-    public void setImage(int image) {
-        this.image = image;
-    }
 
     public HomeProductList(String name, String price, int image) {
         this.name = name;

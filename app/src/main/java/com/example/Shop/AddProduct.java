@@ -44,21 +44,30 @@ public class AddProduct extends AppCompatActivity
         });
     }
 
-    private void processinsert()
-    {
-        Map<String,Object> map=new HashMap<>();
-        map.put("name",name.getText().toString());
-        map.put("desc",desc.getText().toString());
-        map.put("price",price.getText().toString());
+
+    private void processinsert() {
+        // Получение данных о продукте из EditText
+        String productName = name.getText().toString();
+        String productDesc = desc.getText().toString();
+        String productPrice = price.getText().toString();
+
+        // Создание объекта данных о продукте
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", productName);
+        map.put("desc", productDesc);
+        map.put("price", productPrice);
+
+        // Получение ссылки на базу данных Firebase и добавление данных о продукте
         FirebaseDatabase.getInstance().getReference().child("Products").push()
                 .setValue(map)
                 .addOnSuccessListener(aVoid -> {
+                    // Очистка полей EditText после успешного добавления
                     name.setText("");
                     desc.setText("");
                     price.setText("");
-                    Toast.makeText(getApplicationContext(),"Successfully",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Product added successfully", Toast.LENGTH_LONG).show();
                 })
-                .addOnFailureListener(e -> Toast.makeText(getApplicationContext(),"Failed!",Toast.LENGTH_LONG).show());
-
+                .addOnFailureListener(e -> Toast.makeText(getApplicationContext(), "Failed to add product", Toast.LENGTH_LONG).show());
     }
+
 }

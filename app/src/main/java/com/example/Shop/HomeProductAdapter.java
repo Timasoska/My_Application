@@ -49,5 +49,7 @@ public class HomeProductAdapter extends BaseAdapter {
         tvProductPrice.setText(mail.getPrice());
         imageView.setImageResource(mail.getImage());
         return convertView;
+
+
     }
 }
