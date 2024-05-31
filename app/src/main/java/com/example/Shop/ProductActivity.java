@@ -32,6 +32,7 @@ public class ProductActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
+        // Инициализация RecyclerView и других компонентов
         recview=findViewById(R.id.recview);
         lmAsc = new LinearLayoutManager(this);
         lmDesc = new LinearLayoutManager(this);
@@ -40,7 +41,7 @@ public class ProductActivity extends AppCompatActivity
         recview.setLayoutManager(lmAsc);
 
         list = findViewById(R.id.list);
-
+        // Обработчик нажатия на изображение для изменения порядка сортировки
         list.setOnClickListener(view -> {
             LinearLayoutManager lm = (LinearLayoutManager) recview.getLayoutManager();
             assert lm != null;
@@ -53,11 +54,12 @@ public class ProductActivity extends AppCompatActivity
         });
         linear = findViewById(R.id.linear);
         textadd = findViewById(R.id.textadd);
+        // Настройка опций FirebaseRecyclerOptions для получения данных из Firebase
         FirebaseRecyclerOptions<Model> options =
                 new FirebaseRecyclerOptions.Builder<Model>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Products").orderByChild("name"), Model.class)
                         .build();
-
+        // Инициализация адаптера и установка его для RecyclerView
         adapter=new AddProductAdapter(options, textadd, linear);
         recview.setAdapter(adapter);
 

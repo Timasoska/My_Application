@@ -28,6 +28,7 @@ import java.util.Map;
     {
         private TextView tvNoItems;
         private LinearLayout imgNoItems;
+        // Конструктор адаптера
 
         public AddProductAdapter(@NonNull FirebaseRecyclerOptions<Model> options, TextView tvNoItems, LinearLayout imgNoItems)
         {
@@ -35,7 +36,7 @@ import java.util.Map;
             this.tvNoItems = tvNoItems;
             this.imgNoItems = imgNoItems;
         }
-
+        // Обновление состояния данных
         @Override
         public void onDataChanged() {
             super.onDataChanged();
@@ -50,6 +51,7 @@ import java.util.Map;
             }
 
         }
+        // Привязка данных к ViewHolder
 
         @Override
         protected void onBindViewHolder(@NonNull final myviewholder holder, @SuppressLint("RecyclerView") final int position, @NonNull final Model model)
@@ -57,6 +59,7 @@ import java.util.Map;
             holder.name.setText(model.getName());
             holder.desc.setText(model.getDesc());
             holder.price.setText(model.getPrice());
+            // Обработка нажатия кнопки редактирования
 
             holder.edit.setOnClickListener(view -> {
                 final DialogPlus dialogPlus= DialogPlus.newDialog(holder.img.getContext())
@@ -89,7 +92,7 @@ import java.util.Map;
 
 
             });
-
+            // Обработка нажатия кнопки детализации
             holder.detail.setOnClickListener(view -> {
                 final DialogPlus dialogPlus= DialogPlus.newDialog(holder.img.getContext())
                         .setContentHolder(new ViewHolder(R.layout.productdetail))
@@ -116,7 +119,7 @@ import java.util.Map;
                 dialogPlus.show();
             });
 
-
+            // Обработка нажатия кнопки удаления
             holder.delete.setOnClickListener(view -> {
                 AlertDialog.Builder builder=new AlertDialog.Builder(holder.img.getContext());
                 builder.setTitle("Product Delete Page");
@@ -133,7 +136,7 @@ import java.util.Map;
             });
 
         }
-
+        // Создание ViewHolder
         @NonNull
         @Override
         public myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
@@ -142,7 +145,7 @@ import java.util.Map;
             return new myviewholder(view);
         }
 
-
+        // Класс ViewHolder для отображения продукта
         class myviewholder extends RecyclerView.ViewHolder
         {
             ImageView edit,delete,img,detail;

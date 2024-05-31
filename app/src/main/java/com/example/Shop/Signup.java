@@ -44,6 +44,7 @@ public class Signup extends AppCompatActivity {
         signup = findViewById(R.id.signup);
         login = findViewById(R.id.login);
 
+        // Обработчик нажатия на кнопку регистрации
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +53,7 @@ public class Signup extends AppCompatActivity {
             }
         });
 
+        // Обработчик нажатия на кнопку входа
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,12 +91,13 @@ public class Signup extends AppCompatActivity {
             password.requestFocus();
             return;
         }
-
+        // Создание нового пользователя с помощью Firebase
         mAuth.createUserWithEmailAndPassword(mails,passwords)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            // Успешная регистрация
                             User user = new User(names,mails);
 
                             FirebaseDatabase.getInstance().getReference("Users")

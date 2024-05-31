@@ -9,12 +9,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F9A825">
+        android:background="#F8520B">
         <TextView
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:text="Product Detail"
-            android:background="#F9A825"
+            android:background="#F8520B"
             android:textSize="25dp"
             android:gravity="center"
             android:textColor="#fff"/>

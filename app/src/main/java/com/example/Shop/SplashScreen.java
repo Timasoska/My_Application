@@ -12,7 +12,7 @@ public class SplashScreen extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
-
+        // Запуск метода для ожидания и перехода на следующую активность
         timeOut();
 
     }
@@ -21,12 +21,13 @@ public class SplashScreen extends Activity {
             try{
 
                 synchronized(this){
-                    wait(2000);
+                    wait(2000); // Ожидание 2 секунды
                 }
 
             }catch(InterruptedException e){
                 e.printStackTrace();
             }finally{
+                // Переход на Login активность после ожидания
                 Intent i=new Intent(getApplicationContext(), Login.class);
                 startActivity(i);
                 finish();

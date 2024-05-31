@@ -16,8 +16,8 @@ import java.util.Map;
 
 public class AddProduct extends AppCompatActivity
 {
-    EditText name,desc,price;
-    Button submit,back;
+    EditText name,desc,price; // Поля для ввода имени, описания и цены продукта
+    Button submit,back; // Кнопки для отправки и возврата
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -28,14 +28,16 @@ public class AddProduct extends AppCompatActivity
         name=findViewById(R.id.add_name);
         desc=findViewById(R.id.add_desc);
         price=findViewById(R.id.add_price);
-
         back=findViewById(R.id.add_back);
+
+        // Обработка нажатия кнопки "Назад"
         back.setOnClickListener(view -> {
             startActivity(new Intent(getApplicationContext(),MainActivity.class));
             finish();
         });
 
         submit=findViewById(R.id.add_submit);
+        // Обработка нажатия кнопки "Отправить"
         submit.setOnClickListener(view -> {
             processinsert();
             Toast.makeText(this,"Successfully",Toast.LENGTH_LONG).show();

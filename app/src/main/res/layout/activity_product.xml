@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#F9A825"
+        android:background="#F8520B"
         android:orientation="vertical"
         tools:ignore="MissingConstraints">
 
@@ -50,11 +50,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.945"
         app:srcCompat="@drawable/add" />
+
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="right">
+        android:gravity="right"
+        tools:layout_editor_absoluteX="-28dp"
+        tools:layout_editor_absoluteY="69dp">
 
         <ImageView
             android:layout_width="100dp"

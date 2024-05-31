@@ -37,6 +37,7 @@ public class HomeProductAdapter extends BaseAdapter {
         return position;
     }
 
+    // Метод для создания и заполнения представления элемента списка
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
