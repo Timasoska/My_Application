@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 public class Model
 {
-    String name,desc,price,img;
+    String name,desc,price;
     ImageView imageUrl;
 
     public Model() {
@@ -28,11 +28,9 @@ public class Model
         return price;
     }
 
-    public Model(String name, String desc, String price, String img, ImageView imageUrl) {
+    public Model(String name, String desc, String price) {
         this.name = name;
         this.desc = desc;
         this.price = price;
-        this.img = img;
-        this.imageUrl = imageUrl;
     }
 }
