@@ -36,9 +36,9 @@ public class ProductActivity extends AppCompatActivity
         recview=findViewById(R.id.recview);
         lmAsc = new LinearLayoutManager(this);
         lmDesc = new LinearLayoutManager(this);
-        lmDesc.setReverseLayout(true);
-        lmDesc.setStackFromEnd(true);
-        recview.setLayoutManager(lmAsc);
+        lmDesc.setReverseLayout(true); // Установка реверсивного расположения для lmDesc
+        lmDesc.setStackFromEnd(true);// Установка заполнения списка с конца для lmDesc
+        recview.setLayoutManager(lmAsc); // Установка начального менеджера компоновки для RecyclerView
 
         list = findViewById(R.id.list);
         // Обработчик нажатия на изображение для изменения порядка сортировки

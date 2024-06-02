@@ -32,7 +32,7 @@ public class Signup extends AppCompatActivity {
         setContentView(R.layout.signup);
         init();
 
-        mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance(); // Инициализация Firebase аутентификации
     }
 
     void init(){
@@ -99,7 +99,7 @@ public class Signup extends AppCompatActivity {
                         if(task.isSuccessful()){
                             // Успешная регистрация
                             User user = new User(names,mails);
-
+                            // Сохранение данных пользователя в Firebase Realtime Database
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {

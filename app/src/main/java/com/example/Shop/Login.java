@@ -24,15 +24,16 @@ public class Login extends AppCompatActivity {
     Button login;
     TextView signup;
     EditText mail,password;
-    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth; // Экземпляр FirebaseAuth для выполнения аутентификации
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login)      ;
 
-        init();
+        init(); // Инициализация элементов интерфейса
     }
 
+    // Метод для инициализации элементов интерфейса и установки обработчиков событий
     void init(){
         login = findViewById(R.id.login);
         signup = findViewById(R.id.signup);
@@ -60,18 +61,20 @@ public class Login extends AppCompatActivity {
 
     }
 
+    // Метод для выполнения входа
     private void login(){
 
         String mails = mail.getText().toString().trim();
         String passwords = password.getText().toString().trim();
 
-
+        // Проверка, что поле электронной почты не пустое
         if(mails.isEmpty()){
             mail.setError("Mail is required!");
             mail.requestFocus();
             return;
         }
 
+        // Проверка, что введенный адрес электронной почты имеет правильный формат
         if(!Patterns.EMAIL_ADDRESS.matcher(mails).matches()){
             mail.setError("Please enter a valid mail.");
             mail.requestFocus();
@@ -85,11 +88,13 @@ public class Login extends AppCompatActivity {
             return;
         }
 
+        // Выполнение входа с помощью FirebaseAuth
         mAuth.signInWithEmailAndPassword(mails,passwords).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); // Получение текущего пользователя
 
+                // Если вход выполнен успешно, переход на главный экран
                 if(task.isSuccessful()){
                     startActivity(new Intent(Login.this,MainActivity.class));
                 }

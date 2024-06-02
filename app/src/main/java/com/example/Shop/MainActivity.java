@@ -17,7 +17,9 @@ public class MainActivity extends AppCompatActivity {
 
     Button b1,b2,b3,b4,add;
     ListView list_item;
+    // Создание списка для хранения продуктов
     final ArrayList<HomeProductList> productLists = new ArrayList<>();
+    // Аннотация, указывающая, что метод требует определенной версии API
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     void init(){
+        // Инициализация кнопок и установка для них прозрачного фона
         b1 = findViewById(R.id.b1);
         b1.setBackgroundTintList(null);
 
@@ -55,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         productLists.add(new HomeProductList("Asus zenbook 15pro","130000 RUB.",R.drawable.asus));
         productLists.add(new HomeProductList("Asus vivobook 15","105000 RUB.",R.drawable.asusvivo));
 
-
+        // Создание адаптера для отображения продуктов в списке и установка его для ListView
         HomeProductAdapter mailAdapter = new HomeProductAdapter(this, productLists);
         if (list_item != null) {
             list_item.setAdapter(mailAdapter);
